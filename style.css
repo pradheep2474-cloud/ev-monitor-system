@@ -15,38 +15,22 @@ body {
     cursor: pointer;
 }
 
-/* Background Animated Pill Pattern */
+/* Fullscreen Background Image Setup */
 .bg-gradient-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #7054df 0%, #a448b2 50%, #e87b70 100%);
     z-index: -2;
     overflow: hidden;
 }
 
-.pill-shape {
-    position: absolute;
-    background: linear-gradient(135deg, rgba(255, 142, 83, 0.85), rgba(255, 110, 120, 0.5));
-    border-radius: 60px;
-    transform: rotate(-42deg);
-    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15));
-    animation: floatingPills 8s infinite alternate ease-in-out;
-}
-
-.pill-1 { width: 380px; height: 95px; bottom: -50px; left: -40px; }
-.pill-2 { width: 450px; height: 110px; bottom: 10%; left: 30%; animation-delay: -2s; }
-.pill-3 { width: 320px; height: 80px; bottom: 25%; right: 5%; animation-delay: -4s; }
-.pill-4 { width: 280px; height: 22px; bottom: 40%; left: 32%; background: rgba(255, 160, 110, 0.9); }
-.pill-5 { width: 340px; height: 25px; bottom: 12%; left: 5%; background: rgba(255, 160, 110, 0.85); }
-.pill-6 { width: 300px; height: 22px; bottom: 20%; right: 18%; background: rgba(255, 160, 110, 0.8); }
-.pill-7 { width: 220px; height: 18px; top: 15%; right: -30px; background: rgba(255, 160, 110, 0.7); }
-
-@keyframes floatingPills {
-    0% { transform: rotate(-42deg) translateY(0px) translateX(0px); }
-    100% { transform: rotate(-42deg) translateY(-25px) translateX(15px); }
+.bg-image {
+    width: 100%;
+    height: 100%;
+    background: url('assets/bg.jpg') no-repeat center center/cover;
+    filter: brightness(0.8) contrast(1.1);
 }
 
 .bg-overlay {
