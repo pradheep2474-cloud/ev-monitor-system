@@ -11,11 +11,11 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
-    background: #5d3bc7;
-    cursor: pointer;
+    background: #0d0a21;
+    color: #fff;
 }
 
-/* Fullscreen Background Image Setup */
+/* Background Setup */
 .bg-gradient-container {
     position: fixed;
     top: 0;
@@ -30,7 +30,7 @@ body {
     width: 100%;
     height: 100%;
     background: url('assets/bg.jpg') no-repeat center center/cover;
-    filter: brightness(0.8) contrast(1.1);
+    filter: brightness(0.7) contrast(1.1);
 }
 
 .bg-overlay {
@@ -39,7 +39,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(30, 16, 75, 0.2) 0%, rgba(10, 11, 30, 0.5) 100%);
+    background: radial-gradient(circle at center, rgba(30, 16, 75, 0.4) 0%, rgba(10, 11, 30, 0.85) 100%);
     z-index: -1;
 }
 
@@ -49,9 +49,11 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 22px 8%;
-    background: rgba(10, 11, 30, 0.25);
+    background: rgba(10, 11, 30, 0.4);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    z-index: 10;
 }
 
 .logo {
@@ -80,16 +82,31 @@ body {
 
 .nav-auth-btns {
     display: flex;
+    align-items: center;
     gap: 15px;
 }
 
 .nav-btn {
-    padding: 10px 26px;
+    padding: 10px 22px;
     border-radius: 25px;
     border: none;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
 }
 
 .login-btn {
@@ -115,12 +132,21 @@ body {
     transform: translateY(-2px);
 }
 
-/* Hero Section */
+.user-tag {
+    font-size: 0.9rem;
+    color: #ffd285;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Landing Section */
 .hero-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 90px);
+    min-height: calc(100vh - 90px);
     text-align: center;
     color: #fff;
     padding: 0 20px;
@@ -130,7 +156,6 @@ body {
     max-width: 800px;
 }
 
-/* Modern Animated Heading */
 .modern-heading {
     font-family: 'Orbitron', sans-serif;
     font-size: 3.8rem;
@@ -145,7 +170,6 @@ body {
     animation: gradientShift 6s infinite linear, titlePulse 3s infinite ease-in-out;
     margin-bottom: 20px;
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @keyframes titlePulse {
@@ -159,7 +183,6 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Touch Prompt Hint */
 .tap-hint {
     margin-top: 30px;
     font-size: 1.1rem;
@@ -168,7 +191,6 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    letter-spacing: 1px;
 }
 
 .float-icon {
@@ -186,9 +208,6 @@ body {
     color: rgba(255, 255, 255, 0.95);
     margin-bottom: 35px;
     line-height: 1.6;
-    max-width: 680px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .glowing-btn {
@@ -212,15 +231,127 @@ body {
     box-shadow: 0 12px 30px rgba(255, 142, 83, 0.8);
 }
 
-.glowing-btn i {
-    transition: transform 0.3s ease;
+/* Dashboard Section */
+.dashboard-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-.glowing-btn:hover i {
-    transform: translateX(5px);
+.dashboard-welcome {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 35px;
 }
 
-/* Interactive Reveal Mechanics */
+.dashboard-welcome h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+}
+
+.role-badge {
+    background: linear-gradient(90deg, #ff8e53, #a448b2);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.role-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.role-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-6px);
+    border-color: #ff8e53;
+    box-shadow: 0 10px 30px rgba(255, 142, 83, 0.2);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #ff8e53;
+    margin-bottom: 15px;
+}
+
+.role-card h3 {
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+}
+
+.role-card p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Portal Dynamic Content Box */
+.portal-container {
+    background: rgba(10, 11, 30, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 30px;
+    animation: fadeIn 0.4s ease;
+}
+
+.portal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.portal-header h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffd285;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.metric-card i {
+    font-size: 1.8rem;
+    color: #ff8e53;
+    margin-bottom: 10px;
+}
+
+.metric-card h4 {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 5px;
+}
+
+.metric-card p {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Dynamic Display Helpers */
 .hidden-element {
     opacity: 0;
     pointer-events: none;
@@ -238,7 +369,11 @@ body.revealed #tapPrompt {
     display: none;
 }
 
-/* Modal Popup */
+.hidden-view {
+    display: none !important;
+}
+
+/* Modal Overlay & Forms */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -262,13 +397,13 @@ body.revealed #tapPrompt {
     position: relative;
     width: 850px;
     max-width: 90%;
-    height: 500px;
+    height: 520px;
     background: #fff;
     border-radius: 16px;
     display: flex;
     overflow: hidden;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #333;
 }
 
 .close-btn {
@@ -289,7 +424,6 @@ body.revealed #tapPrompt {
     transform: scale(1.2) rotate(90deg);
 }
 
-/* Modal Left Banner */
 .modal-left-banner {
     flex: 1.1;
     background: linear-gradient(135deg, #5031b8 0%, #a448b2 50%, #ff8e53 100%);
@@ -330,10 +464,9 @@ body.revealed #tapPrompt {
     z-index: 2;
 }
 
-/* Modal Right Form */
 .modal-right-form {
     flex: 0.9;
-    padding: 50px 40px;
+    padding: 40px 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -344,7 +477,6 @@ body.revealed #tapPrompt {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    animation: fadeIn 0.4s ease;
 }
 
 .auth-form.hidden {
@@ -357,7 +489,7 @@ body.revealed #tapPrompt {
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .input-box {
@@ -382,7 +514,7 @@ body.revealed #tapPrompt {
     font-size: 0.95rem;
 }
 
-.input-box input {
+.input-box input, .input-box select {
     border: none;
     background: transparent;
     outline: none;
@@ -397,7 +529,6 @@ body.revealed #tapPrompt {
     align-items: center;
     font-size: 0.78rem;
     color: #666;
-    margin: 4px 0;
 }
 
 .remember-label {
@@ -410,11 +541,6 @@ body.revealed #tapPrompt {
 .forgot-link {
     color: #888;
     text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.forgot-link:hover {
-    color: #5031b8;
 }
 
 .submit-pill-btn {
@@ -440,7 +566,6 @@ body.revealed #tapPrompt {
     text-align: center;
     font-size: 0.78rem;
     color: #666;
-    margin-top: 10px;
 }
 
 .toggle-form-text a {
@@ -449,15 +574,9 @@ body.revealed #tapPrompt {
     font-weight: 600;
 }
 
-/* Base Keyframe Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-
-@keyframes popIn {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
 }
 
 @media (max-width: 768px) {
